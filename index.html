@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="https://video-react.github.io/assets/video-react.css"/>
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Video Interactive Prototype</title>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script type="text/javascript">
+      //<![CDATA[
+      var __ENVIRONMENT__ = {
+  "server": "LOCALDEV",
+  "nodeAlias": "Test",
+  "cultureName": "English",
+  "cultureCode": "en-NZ"
+  };var __GALLERY_DATA__ = [
+  {
+    "id": 205,
+    "cultureName": "English",
+    "cultureCode": "en-NZ",
+    "nodealias": "Test",
+    "classname": "AKM.MediaGallery",
+    "title": "Test Video Title",
+    "text": "Some description goes here",
+    "itemCount": 6,
+    "itemsAcross": 4,
+    "backgroundImage": "maungakiekie.png",
+    "backgroundColour": "",
+    "startButtonText": "Explore",
+    "timeout": 0,
+    "items": [
+      {
+        "id": 206,
+        "order": 1,
+        "cultureName": "English",
+        "cultureCode": "en-NZ",
+        "nodealias": "Video-1",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 1",
+        "eoltext": "Some description Some description Some description Some description Some description Some description Some description Some description Some description Some description",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+      },
+      {
+        "id": 207,
+        "order": 2,
+        "cultureName": "English",
+        "cultureCode": "en-NZ",
+        "nodealias": "Video-2",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 2",
+        "eoltext": "Some description Some description Some description Some description Some description",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+      },
+      {
+        "id": 208,
+        "order": 3,
+        "cultureName": "English",
+        "cultureCode": "en-NZ",
+        "nodealias": "Video-3",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 3",
+        "eoltext": "Some description",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+      },
+      {
+        "id": 209,
+        "order": 4,
+        "cultureName": "English",
+        "cultureCode": "en-NZ",
+        "nodealias": "Video-4",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 4",
+        "eoltext": "Some description Some description Some description Some description Some description Some description Some description Some description Some description Some description",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+      },
+      // {
+      //   "id": 210,
+      //   "order": 5,
+      //   "cultureName": "English",
+      //   "cultureCode": "en-NZ",
+      //   "nodealias": "Video-3",
+      //   "classname": "AKM.MediaVideo",
+      //   "title": "",
+      //   "text": "",
+      //   "eoltitle": "Title 3",
+      //   "eoltext": "Some description",
+      //   "credit": "Credit",
+      //   "copyright": "Copyright",
+      //   "thumb": "Untitled.png",
+      //   "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+      //   "duration": "1:30"
+      // },
+      // {
+      //   "id": 211,
+      //   "order": 6,
+      //   "cultureName": "English",
+      //   "cultureCode": "en-NZ",
+      //   "nodealias": "Video-4",
+      //   "classname": "AKM.MediaVideo",
+      //   "title": "",
+      //   "text": "",
+      //   "eoltitle": "Title 4",
+      //   "eoltext": "Some description",
+      //   "credit": "Credit",
+      //   "copyright": "Copyright",
+      //   "thumb": "Untitled.png",
+      //   "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+      //   "duration": "1:30"
+      // }
+    ]
+  },
+  {
+          "id": 212,
+          "cultureName": "Māori",
+          "cultureCode": "mi-NZ",
+          "nodealias": "Test",
+          "classname": "AKM.MediaGallery",
+          "title": "Ataata Whakamatau",
+          "text": "Ko etahi whakaahuatanga kei konei",
+          "itemCount": 4,
+          "itemsAcross": 4,
+          "backgroundImage": "maungakiekie.png",
+          "backgroundColour": "",
+          "startButtonText": "Toroa",
+          "timeout": 0,
+          "items": [
+            {
+              "id": 213,
+        "order": 1,
+        "cultureName": "Māori",
+        "cultureCode": "mi-NZ",
+        "nodealias": "Video-7",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 7",
+        "eoltext": "Ko etahi whakamaarama",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+            },
+            {
+              "id": 214,
+        "order": 2,
+        "cultureName": "Māori",
+        "cultureCode": "mi-NZ",
+        "nodealias": "Video-8",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 8",
+        "eoltext": "Ko etahi whakamaarama",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+            },
+            {
+              "id": 215,
+        "order": 3,
+        "cultureName": "Māori",
+        "cultureCode": "mi-NZ",
+        "nodealias": "Video-9",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 9",
+        "eoltext": "Ko etahi whakamaarama",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+            },
+            {
+              "id": 216,
+        "order": 4,
+        "cultureName": "Māori",
+        "cultureCode": "mi-NZ",
+        "nodealias": "Video-10",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 10",
+        "eoltext": "Ko etahi whakamaarama",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+            },
+            
+          ],
+  },
+        {
+          "id": 217,
+          "cultureName": " 官话",
+          "cultureCode": "mn-CHN",
+          "nodealias": "Test",
+          "classname": "AKM.MediaGallery",
+          "title": "測試影片",
+          "text": "一些描述在這裡",
+          "itemCount": 4,
+          "itemsAcross": 4,
+          "backgroundImage": "maungakiekie.png",
+          "backgroundColour": "",
+          "startButtonText": "探索",
+          "timeout": 0,
+          "items": [
+            {
+              "id": 218,
+        "order": 1,
+        "cultureName": " 官话",
+        "cultureCode": "mn-CHN",
+        "nodealias": "Video-11",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 11",
+        "eoltext": "一些描述",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+            },
+            {
+              "id": 219,
+        "order": 2,
+        "cultureName": " 官话",
+        "cultureCode": "mn-CHN",
+        "nodealias": "Video-12",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 12",
+        "eoltext": "一些描述",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+            },
+            {
+              "id": 220,
+        "order": 3,
+        "cultureName": " 官话",
+        "cultureCode": "mn-CHN",
+        "nodealias": "Video-13",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 13",
+        "eoltext": "一些描述",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+            },
+            {
+              "id": 216,
+        "order": 4,
+        "cultureName": " 官话",
+        "cultureCode": "mi-NZ",
+        "nodealias": "Video-14",
+        "classname": "AKM.MediaVideo",
+        "title": "",
+        "text": "",
+        "eoltitle": "Title 14",
+        "eoltext": "一些描述",
+        "credit": "Credit",
+        "copyright": "Copyright",
+        "thumb": "Untitled.png",
+        "original": "http://localdev-digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Media%20Viewer/Test%20Video/SampleVideo_1280x720_2mb.mp4?ext=.mp4",
+        "duration": "1:30"
+            }
+          ]
+  }
+]//]]>
+    </script>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+/* Reset global typography rules */
+html,
+body {
+  font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;   	
+  font-family: 'Gotham Narrow' !important;
+  line-height: 1.43;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'Gotham Narrow';
+  src: url("./GothamNarrow-Medium.woff2") format("woff2"), url("./GothamNarrow-Medium.woff") format("woff"); 
+}
+
+
+/* animations */
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeInVideo {
+	0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+	100% {
+    opacity: 1;
+	}
+}
+
+.fade-in-video {
+	opacity: 1;
+	animation-name: fadeInVideo;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+  animation-duration: 0.3s;
+}
+
+@keyframes fadeOut {
+	0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+	100% {
+    opacity: 0;
+	}
+}
+
+.fade-out {
+	opacity: 1;
+	animation-name: overlayFadeOut;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+  animation-duration: 3s;
+}
+
+@keyframes hide {
+  0%{
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+      overflow:hidden;
+      opacity: 0;
+  }
+}
+
+.hide {
+  animation: hide 1s ease 3s forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  0%{
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+      overflow:hidden;
+      opacity: 1;
+  }
+}
+
+.show {
+  animation: show 1s ease 4s forwards;
+  animation-fill-mode: forwards;
+}
+
+/* specific positioning seperate from mui styles */
+
+.masthead {
+  height: 63vh; 
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -50;
+  width: 100vw;
+  object-fit: cover;
+}
+
+.landing-image {
+  z-index: -100;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.explore-button {
+    margin-left: 42vw; 
+    margin-top: 20vh; 
+    font-weight: 600
+}
+
+.button-container {
+  width: 100vw;
+  position: fixed;
+  text-decoration: none;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #ffffff00, #fffffff0 100%);
+  z-index: 1;
+  height: 8vh;
+  bottom: 0;
+}
+
+.back-button-overlay {
+  width: 100%;
+  height: 6em;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  position: fixed;
+  cursor: pointer;
+  /* background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)); */
+}
+
+/* video player */
+
+.video-player {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Gotham Narrow SSm A', 'Gotham Narrow SSm B', Helvetica, sans-serif;
+}
+
+.video-react .video-react-fullscreen-control {
+  display: none;
+}
+
+.video-react .video-react-big-play-button {
+  display: none;
+}
+
+.video-react .video-react-bezel-animation {
+  display: none;
+}
+
+.video-react .video-react-bezel-animation-alt {
+  display: none;
+}
+
+.video-react-duration.video-react-time-control.video-react-control {
+  display: none;
+}
+
+.video-react .video-react-time-divider {
+  display: none;
+}
+
+.video-react .video-react-slider:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.video-react .video-react-control:focus:before, .video-react .video-react-control:hover:before, .video-react .video-react-control:focus {
+  text-shadow: none;
+}
+
+.video-react .video-react-control-bar {
+  background-color: #00000000 !important;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  transition: visibility 0.1s, opacity 0.1s;
+  height: 80px !important;
+}
+
+.video-react-progress-control.video-react-control {
+  margin-right: 128px;
+  margin-left: 22px;
+  padding-top: 25px;
+}
+
+.video-react .video-react-control {
+  width: 2.7em;
+  margin-top: -13px;
+}
+
+.video-react .video-react-time-control {
+  padding-left: 0.5em;
+  position: absolute;
+  right: 65px;
+  top: 35px;
+}
+
+.video-react .video-react-play-control {
+  margin-right: -6px; 
+  font-size: 3.4em;
+}
+
+.video-react .video-react-mute-control, .video-react .video-react-volume-menu-button {
+  font-size: 3.4em;
+}
+
+.video-react .video-react-volume-bar.video-react-slider-vertical {
+  width: 0.2em;
+}
+
+.video-react .video-react-load-progress div {
+  background: rgba(142, 142, 142, 0);
+}
+
+.video-react .video-react-play-progress {
+  background-color: #ffffff61;
+}
+
+.video-react .video-react-menu-button-popup .video-react-menu .video-react-menu-content {
+  background-color: rgba(43, 51, 63, 0);
+  margin-bottom: -2.3em;
+  left: -0.59em;
+}
+
+.video-react .video-react-slider {
+  background-color: rgb(121, 131, 135);
+  height: 0.6em;
+}
+
+.video-react .video-react-volume-level {
+  background-color: #ffffff61;
+}
+
+.video-react .video-react-progress-control:hover .video-react-time-tooltip, .video-react .video-react-progress-control:hover .video-react-mouse-display:after, .video-react .video-react-progress-control:hover .video-react-play-progress:after {
+  visibility: hidden;
+}
+
+.video-react .video-react-play-progress:before {
+  font-size: 1.7em;
+  top: -0.4em;
+}
+
+.video-react .video-react-play-progress:hover:before {
+  font-size: 2em;
+  top: -0.43em;
+}
+
+.video-react-current-time-display {
+  font-size: 2.5em;
+}
+
+.video-react-play-progress.video-react-slider-bar {
+  font-size: 2em;
+}
+
+
+.video-react .video-react-slider-vertical .video-react-volume-level:hover:before {
+  font-size: 1.1em;
+}
+
+.video-react .video-react-slider-vertical .video-react-volume-level:before {
+  left: -0.42em;
+  font-size: 1em;
+}
+
+.video-react .video-react-slider-vertical .video-react-volume-level {
+  width: 0.2em;
+}
+
+.video-react .video-react-progress-control:hover .video-react-progress-holder {
+  font-size: 1em;
+} 
+
+div:hover:before {
+  font-size: 1.3em;
+}
