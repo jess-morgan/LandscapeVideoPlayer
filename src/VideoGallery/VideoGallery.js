@@ -128,7 +128,7 @@ const VideoGallery = (props) => {
     if (vid.paused)
     setPlayVideo(false)
     setIsTimedOut(true)
-    setTimedOut(true) 
+    // setTimedOut(true) 
 }
 
 if (playVideo && !homeClicked) {

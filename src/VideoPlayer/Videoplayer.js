@@ -47,7 +47,7 @@ const VideoPlayerComp = ({ videoObj }) => {
       }
 
       const pausedTimeOut = () => {
-        setTimeout(setTimedOut(true), 90000)
+        // setTimeout(setTimedOut(true), 90000)
       }
 
     return (
@@ -68,7 +68,9 @@ const VideoPlayerComp = ({ videoObj }) => {
               src={videoObj.original}
               className='video-player fade-in-video'
               onPlay={() => {setPause(false)}}
-              onPause={() => {setPause(true); setOverlayVisible(true); pausedTimeOut()}}
+              onPause={() => {setPause(true); setOverlayVisible(true);
+                //  pausedTimeOut()
+                }}
               onEnded={() => {setTimeout(() => { setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}, 3000);}}
               >
               <Shortcut clickable={false} />
