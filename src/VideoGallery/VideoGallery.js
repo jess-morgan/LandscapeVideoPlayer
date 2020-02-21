@@ -119,16 +119,14 @@ const VideoGallery = (props) => {
   }
  
   const onActive = (e) => {
-    console.log('user is active', e)
     setIsTimedOut(false)
   }
  
   const onIdle = (e) => {
-    console.log('user is idle', e)
     if (vid.paused)
     setPlayVideo(false)
     setIsTimedOut(true)
-    // setTimedOut(true) 
+    setTimedOut(true) 
 }
 
 if (playVideo && !homeClicked) {

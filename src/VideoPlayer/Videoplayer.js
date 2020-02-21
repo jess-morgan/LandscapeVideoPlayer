@@ -47,7 +47,7 @@ const VideoPlayerComp = ({ videoObj }) => {
       }
 
       const pausedTimeOut = () => {
-        // setTimeout(setTimedOut(true), 90000)
+        setTimeout(setTimedOut(true), 90000)
       }
 
     return (
@@ -69,7 +69,7 @@ const VideoPlayerComp = ({ videoObj }) => {
               className='video-player fade-in-video'
               onPlay={() => {setPause(false)}}
               onPause={() => {setPause(true); setOverlayVisible(true);
-                //  pausedTimeOut()
+                 pausedTimeOut()
                 }}
               onEnded={() => {setTimeout(() => { setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}, 3000);}}
               >
