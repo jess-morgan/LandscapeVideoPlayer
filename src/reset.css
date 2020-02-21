@@ -247,9 +247,12 @@ body {
 
 .video-react .video-react-volume-bar.video-react-slider-vertical {
   width: 0.2em;
+  height: 4em !important;
+  bottom: 0.4em;
+  background-color: rgba(255, 255, 255, 0.36);
 }
 
-.video-react .video-react-load-progress div {
+.video-react .video-react-load-progress {
   display: none !important;
 }
 
@@ -258,9 +261,11 @@ body {
 }
 
 .video-react .video-react-menu-button-popup .video-react-menu .video-react-menu-content {
-  background-color: rgba(43, 51, 63, 0);
-  margin-bottom: -2.3em;
+  background-color: #0000005e;
+  margin-bottom: -1.03em;
   left: -0.59em;
+  height: 185px;
+  border-radius: 58px 58px 0 0;
 }
 
 .video-react .video-react-slider {
@@ -270,7 +275,8 @@ body {
 }
 
 .video-react .video-react-volume-level {
-  background-color: #ffffff61;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
 }
 
 .video-react .video-react-progress-control:hover .video-react-time-tooltip, .video-react .video-react-progress-control:hover .video-react-mouse-display:after, .video-react .video-react-progress-control:hover .video-react-play-progress:after {
@@ -305,7 +311,7 @@ body {
 }
 
 .video-react .video-react-slider-vertical .video-react-volume-level:before {
-  left: -0.42em;
+  left: -0.4em;
   font-size: 0.85em;
 }
 
