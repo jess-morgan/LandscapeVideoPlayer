@@ -200,12 +200,13 @@ body {
 }
 
 .video-react-duration.video-react-time-control.video-react-control {
-  display: none;
+  /* display: none; */
+  font-size: 2.5em;
 }
 
-.video-react .video-react-time-divider {
+/* .video-react .video-react-time-divider {
   display: none;
-}
+} */
 
 .video-react .video-react-slider:focus {
   -webkit-box-shadow: none;
@@ -223,9 +224,18 @@ body {
 }
 
 .video-react-progress-control.video-react-control {
-  margin-right: 128px;
+  margin-right: 203px;
   margin-left: 22px;
   padding-top: 25px;
+}
+
+.video-react-time-control.video-react-time-divider {
+  right: 98px !important;
+  top: 4px !important;
+}
+
+.video-react-current-time.video-react-time-control.video-react-control {
+  right: 110px;
 }
 
 .video-react .video-react-control {
@@ -236,8 +246,9 @@ body {
 .video-react .video-react-time-control {
   padding-left: 0.5em;
   position: absolute;
-  right: 70px;
-  top: 38px;
+  right: 33px;
+  top: 17px;
+  font-size: 2.5em;
 }
 
 .video-react .video-react-play-control {
@@ -245,6 +256,7 @@ body {
   font-size: 3.4em;
   top: 3px;
 }
+
 
 .video-react .video-react-mute-control, .video-react .video-react-volume-menu-button {
   font-size: 3.4em;
@@ -263,7 +275,7 @@ body {
 }
 
 .video-react .video-react-play-progress {
-  background-color: #ffffffcc;
+  background-color: #fff;
 }
 
 .video-react .video-react-menu-button-popup .video-react-menu .video-react-menu-content {
@@ -285,13 +297,14 @@ body {
   border-radius: 10px;
 }
 
-.video-react .video-react-progress-control:hover .video-react-time-tooltip, .video-react .video-react-progress-control:hover .video-react-mouse-display:after, .video-react .video-react-progress-control:hover .video-react-play-progress:after {
+/* .video-react .video-react-progress-control:hover .video-react-time-tooltip, .video-react .video-react-progress-control:hover .video-react-mouse-display:after, .video-react .video-react-progress-control:hover .video-react-play-progress:after {
   visibility: hidden;
-}
+} */
 
 .video-react .video-react-play-progress:before {
   font-size: 1.5em;
-  top: -0.25em;
+  top: -0.23em;
+  text-shadow: 1px 0px 12px #000;
 }
 
 .video-react .video-react-play-progress:hover:before {
@@ -299,16 +312,15 @@ body {
   top: -0.26em;
 }
 
-.video-react-current-time-display {
-  font-size: 2.5em;
-}
+/* .video-react-current-time-display {
+  display: none;
+} */
 
 .video-react-play-progress.video-react-slider-bar {
   font-size: 2em;
-  height: 0.76em !important;
+  height: 0.89em !important;
   border-radius: 20px;
-  margin-top: 0.14em !important;
-  margin-left: 0.1em !important;
+  margin-top: 0.09em !important;
 }
 
 

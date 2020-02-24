@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState, useGlobal } from 'reactn'
 import { AppContext } from "../App/AppContext"
 import { trackPageview } from '../utils/analytics'
-import { Player, ControlBar, VolumeMenuButton, PlayToggle, Shortcut } from 'video-react'
+import { Player, ControlBar, VolumeMenuButton, PlayToggle, Shortcut, playerActions } from 'video-react'
 import ReactTouchEvents from "react-touch-events"
 import { animated } from 'react-spring'
 import BackButton from '../BackButton'
@@ -32,7 +32,11 @@ const VideoPlayerComp = ({ videoObj }) => {
             name: 'Video player'
           }
         })
+        console.log( document.getElementsByTagName('video'))
+        console.log(document.getElementById('vid'))
       }, []) 
+      
+      let vid = document.getElementsByTagName('video')
 
       const toggleOverlay = () => {
         if (overlayVisible) {
@@ -40,15 +44,14 @@ const VideoPlayerComp = ({ videoObj }) => {
         }
         if (!overlayVisible) {
           setOverlayVisible(true)
-        } 
-        if (!overlayVisible && !paused) {
-          setOverlayVisible(false)
-        }
+          setTimeout(() => setOverlayVisible(false, 3000))
       }
+    }
 
       const pausedTimeOut = () => {
         setTimeout(setTimedOut(true), 90000)
       }
+
 
     return (
       <ReactTouchEvents 
@@ -67,19 +70,17 @@ const VideoPlayerComp = ({ videoObj }) => {
               autoPlay
               src={videoObj.original}
               className='video-player fade-in-video'
-              onPlay={() => {setPause(false)}}
-              onPause={() => {setPause(true); setOverlayVisible(true);
-                 pausedTimeOut()
-                }}
-              onEnded={() => {setTimeout(() => { setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}, 3000);}}
+              // ref={}
+              onPlay={() => {setPause(false); setTimedOut(false)}}
+              onPause={() => {setPause(true); setOverlayVisible(true); pausedTimeOut()}}
+              onEnded={() => {setTimeout(() => { setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}, 3000)}}
               >
               <Shortcut clickable={false} />
             <ControlBar autoHide={true} >
-             <PlayToggle />
-              <VolumeMenuButton vertical />
+            <PlayToggle />
+              <VolumeMenuButton vertical/>
             </ControlBar>
-       </Player>
-             
+           </Player>
         </animated.div>
        </ReactTouchEvents>
     )
