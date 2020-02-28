@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       display: "grid",
       gridTemplateColumns: "repeat(2, auto)",
-      gridGap: '69px 117px',
+      gridGap: '62px 117px',
       touchAction: 'pan-y',
       alignItems: 'center',
       justifyContent: 'center',

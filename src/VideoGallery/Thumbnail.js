@@ -2,7 +2,7 @@ import React, { useState, useGlobal } from 'reactn'
 import { Spring, config } from 'react-spring/renderprops'
 
 const Thumbnail = ({ id, thumb, eoltitle, eoltext, duration, color }) => {
-  const [style, setStyle] = useState({ height: 315, gridRowEnd: 'span 1', opacity: 1, transition: 'opacity 2s linear' })
+  const [style, setStyle] = useState({ height: 263, gridRowEnd: 'span 1', opacity: 1, transition: 'opacity 2s linear' })
   const [playVideo, setPlayVideo] = useGlobal('playVideo')
   const [homeClicked, setHomeClicked] = useGlobal('homeClicked')
   const  description = eoltext.substring(0,156)
@@ -13,13 +13,13 @@ const Thumbnail = ({ id, thumb, eoltitle, eoltext, duration, color }) => {
         src="/src/VideoGallery/play-button.svg"
         className='fade-in'
         alt={eoltitle}
-        style={{width: 58, height: 57, zIndex: 100, position: 'absolute', marginTop: 130.5, marginLeft: 255}}
+        style={{width: 58, height: 57, zIndex: 100, position: 'absolute', marginTop: 106, marginLeft: 232}}
         />
         <img
         src={thumb}
         alt={eoltitle}
         className='fade-in'
-        style={{ height: style.height, width: 560}}
+        style={{ height: style.height, width: 506}}
       />
       <Spring
       config={config.slow}

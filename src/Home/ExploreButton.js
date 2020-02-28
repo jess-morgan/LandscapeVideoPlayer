@@ -35,15 +35,25 @@ const landingButton = createMuiTheme({
   });
 
 const ExploreButton = (props) => {
-  const [timedOut, setTimedOut] = useGlobal('timedOut')
-
-    return ( 
+    if (props.video) {
+       return ( 
         <MuiThemeProvider theme={landingButton}>
-      <Button onClick={() => setTimedOut(false)} style={{ marginLeft: '44%', marginTop: '60vh', fontWeight: 600}} >
+      <Button style={{ marginTop: '60vh', fontWeight: 600, left: 818}} >
        {props.text}
       </Button>
       </MuiThemeProvider>
-    )
+     )
+    } else {
+      return (
+        <MuiThemeProvider theme={landingButton}>
+        <Button style={{ marginLeft: '44%', marginTop: '60vh', fontWeight: 600}} >
+         {props.text}
+        </Button>
+        </MuiThemeProvider>
+      )
+    }
+
+   
 }
 
 export default ExploreButton

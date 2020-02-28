@@ -6,6 +6,10 @@ import Home from '../Home/Home'
 import Loading from '../Loading'
 import VideoGallery from '../VideoGallery/VideoGallery'
 
+const galleries = window.__GALLERY_DATA__ || [];
+const env = window.__ENVIRONMENT__ || {};
+const cultureNames = galleries.map(g => g.cultureName);
+
 const App = () => {
   const [state] = useContext(AppContext)
   const [playVideo, setPlayVideo] = useGlobal('playVideo')

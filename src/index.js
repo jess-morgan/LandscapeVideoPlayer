@@ -1,11 +1,12 @@
 import React, { setGlobal } from 'reactn'
-import ReactDOM from "react-dom";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-import { AppProvider } from "./App/AppContext";
-import App from "./App/App";
-
-import './reset.css';
+import ReactDOM from "react-dom"
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
+import { createMuiTheme } from "@material-ui/core/styles"
+import { ThemeProvider } from "@material-ui/styles"
+import { AppProvider } from "./App/AppContext"
+import App from "./App/App"
+import reducers from './reducers'
 
 const theme = createMuiTheme({
   typography: {
@@ -63,11 +64,15 @@ setGlobal({
   playVideo: false
 })
 
+const store = createStore(reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
 ReactDOM.render(
-  <AppProvider>
+  <Provider store={store}>
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
-  </AppProvider>,
+  </Provider>,
   document.getElementById("root")
 );

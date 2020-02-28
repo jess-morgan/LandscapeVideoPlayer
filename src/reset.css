@@ -200,13 +200,8 @@ body {
 }
 
 .video-react-duration.video-react-time-control.video-react-control {
-  /* display: none; */
   font-size: 2.5em;
 }
-
-/* .video-react .video-react-time-divider {
-  display: none;
-} */
 
 .video-react .video-react-slider:focus {
   -webkit-box-shadow: none;
@@ -257,6 +252,15 @@ body {
   top: 3px;
 }
 
+.video-react-icon-volume-mute:before, .video-react .video-react-mute-control.video-react-vol-0:before, .video-react .video-react-volume-menu-button.video-react-vol-0:before {
+  left: -10px
+}
+
+.video-react-icon-volume-down:before, .video-react .video-react-bezel .video-react-bezel-icon-volume-down:before, .video-react .video-react-mute-control.video-react-vol-2:before, .video-react .video-react-volume-menu-button.video-react-vol-2:before, .video-react .video-react-mute-control.video-react-vol-1:before, .video-react .video-react-volume-menu-button.video-react-vol-1:before {
+  left: -5px;
+}
+
+
 
 .video-react .video-react-mute-control, .video-react .video-react-volume-menu-button {
   font-size: 3.4em;
@@ -297,9 +301,9 @@ body {
   border-radius: 10px;
 }
 
-/* .video-react .video-react-progress-control:hover .video-react-time-tooltip, .video-react .video-react-progress-control:hover .video-react-mouse-display:after, .video-react .video-react-progress-control:hover .video-react-play-progress:after {
+.video-react .video-react-progress-control:hover .video-react-play-progress:after {
   visibility: hidden;
-} */
+}
 
 .video-react .video-react-play-progress:before {
   font-size: 1.5em;
@@ -311,10 +315,6 @@ body {
   font-size: 1.7em;
   top: -0.26em;
 }
-
-/* .video-react-current-time-display {
-  display: none;
-} */
 
 .video-react-play-progress.video-react-slider-bar {
   font-size: 2em;

@@ -33,6 +33,7 @@ const Home = (props) => {
   const classes = useStyles()
   const [state, setState] = useContext(AppContext)
   const [homeVisible, setHomeVisible] = useState(true)
+  const [timedOut, setTimedOut] = useGlobal('timedOut')
 
   useEffect(() => {
     setState(state => ({
@@ -50,40 +51,82 @@ const Home = (props) => {
         name: 'Home Screen'
       }
     })
+    if (document.getElementById('bg-video')) {
+      document.getElementById('bg-video').play() 
+     } 
   }, [])
 
   if (state && homeVisible) {
   return (
-    <div className='fade-in'>
+    <div className='fade-in' onClick={() => setTimedOut(false)}>
     
+    {/* check if props.backgroundImage ends in video type or image type and render correct tag w/ src */}
+      {props.backgroundImage.match(/\.(jpeg|jpg|gif|png|bmp|svg)$/) ? 
+      <>
        <img src={props.backgroundImage} alt={props.title} className='landing-image'/>
-        <animated.div className={classes.root}>
+       <animated.div className={classes.root}>
 
-        <Spring
-            config={config.slow}
-             delay={600}
-              from={{ opacity: 0, transform: 'translate3d(0,70px,0)' }}
-               to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
-              {({ opacity, transform }) =>
-         <HeadingHome color='#353535' {...props} style={{ opacity, transform}} />}
-         </Spring>
-
-          <ExploreButton text={props.startButtonText} />
-
-           <Spring
-            config={config.slow}
-             delay={600}
-              from={{ opacity: 0, transform: 'translate3d(0,70px,0)' }}
-               to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
-              {({ opacity, transform }) =>
-            <div style={{ opacity, transform }} className={classes.buttons}>
-           <LanguageToggleHome /> 
-       
-          </div>
-         } 
-     
+       <Spring
+           config={config.slow}
+            delay={600}
+             from={{ opacity: 0, transform: 'translate3d(0,70px,0)' }}
+              to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
+             {({ opacity, transform }) =>
+        <HeadingHome color='#353535' {...props} style={{ opacity, transform}} />}
         </Spring>
-       </animated.div> 
+
+         <ExploreButton text={props.startButtonText} />
+
+          <Spring
+           config={config.slow}
+            delay={600}
+             from={{ opacity: 0, transform: 'translate3d(0,70px,0)' }}
+              to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
+             {({ opacity, transform }) =>
+           <div style={{ opacity, transform }} className={classes.buttons}>
+          <LanguageToggleHome /> 
+      
+         </div>
+        } 
+    
+       </Spring>
+      </animated.div> 
+      </>
+      : 
+      <>
+      <video autoplay loop muted id='bg-video'>
+      <source src={props.backgroundImage} alt={props.title} style={{position: 'fixed', zIndex: -100, minWidth: '100%', minHeight: '100%'}} type="video/mp4"/>
+      </video>
+              <animated.div className={classes.root} style={{position: 'absolute', bottom: 0}}>
+
+              <Spring
+                  config={config.slow}
+                   delay={600}
+                    from={{ opacity: 0, transform: 'translate3d(0,70px,0)' }}
+                     to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
+                    {({ opacity, transform }) =>
+               <HeadingHome color='#353535' {...props} style={{ opacity, transform}} />}
+               </Spring>
+
+                 <ExploreButton text={props.startButtonText} video='true'/>
+
+                 <Spring
+                  config={config.slow}
+                   delay={600}
+                    from={{ opacity: 0, transform: 'translate3d(0,70px,0)' }}
+                     to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
+                    {({ opacity, transform }) =>
+                  <div style={{ opacity, transform }} className={classes.buttons}>
+                 <LanguageToggleHome /> 
+             
+                </div>
+               } 
+           
+              </Spring>
+             </animated.div>
+             </>  
+             } 
+
     </div>
   )}
   else if (state && !homeVisible) {

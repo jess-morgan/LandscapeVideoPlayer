@@ -55,6 +55,7 @@
     "react-dom": "^16.8.6",
     "react-hamburger-button": "0.0.1",
     "react-idle-timer": "^4.2.12",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-spring": "^8.0.27",
     "react-touch-events": "^2.1.0",

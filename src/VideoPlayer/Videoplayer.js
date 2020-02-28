@@ -32,11 +32,13 @@ const VideoPlayerComp = ({ videoObj }) => {
             name: 'Video player'
           }
         })
-        console.log( document.getElementsByTagName('video'))
-        console.log(document.getElementById('vid'))
+        // setTimeout(() => document.getElementById('vid').click(), console.log('clicked'), 5000)
+        setTimeout(() => toggleControls(), 4000)
       }, []) 
       
       let vid = document.getElementsByTagName('video')
+
+     
 
       const toggleOverlay = () => {
         if (overlayVisible) {
@@ -44,7 +46,7 @@ const VideoPlayerComp = ({ videoObj }) => {
         }
         if (!overlayVisible) {
           setOverlayVisible(true)
-          setTimeout(() => setOverlayVisible(false, 3000))
+          setTimeout(() => setOverlayVisible(false, 5000))
       }
     }
 
@@ -52,36 +54,40 @@ const VideoPlayerComp = ({ videoObj }) => {
         setTimeout(setTimedOut(true), 90000)
       }
 
+      const toggleControls = () => {
+        document.getElementById('overlay').click()
+        // document.getElementsByClassName('video-player').tap()
+        console.log('clicked')
+      }
 
     return (
       <ReactTouchEvents 
         onTap={ () => toggleOverlay()}>
         <animated.div>
-         
-          <div id='overlay' >
-
-            {/*
-             make sure back button and control bar are in sync - base on whether control bar is visible*/}
+          <div id='overlay' onClick={ () => toggleOverlay()}>
 
           <BackButton visible={overlayVisible} {...videoObj} />
-            </div>
+            
+            
             <Player
               id='vid'
               autoPlay
               src={videoObj.original}
               className='video-player fade-in-video'
-              // ref={}
+              ref={(player) => console.log(player)}
               onPlay={() => {setPause(false); setTimedOut(false)}}
               onPause={() => {setPause(true); setOverlayVisible(true); pausedTimeOut()}}
               onEnded={() => {setTimeout(() => { setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}, 3000)}}
               >
               <Shortcut clickable={false} />
+             
             <ControlBar autoHide={true} >
             <PlayToggle />
               <VolumeMenuButton vertical/>
             </ControlBar>
-           </Player>
+           </Player></div>
         </animated.div>
+        
        </ReactTouchEvents>
     )
 }
