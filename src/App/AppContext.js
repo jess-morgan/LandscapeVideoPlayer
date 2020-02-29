@@ -12,8 +12,13 @@ const AppProvider = ({ children }) => {
     galleries,
     cultureNames,
     currentCultureName: "English",
+    drawerOpen: false,
+    viewerExpanded: false,
+    showControls: false,
     currentSlide: undefined,
     instance: {},
+    canZoomIn: true,
+    canZoomOut: false,
     isFirstLoad: true,
     isTransitioningHome: false,
   });
