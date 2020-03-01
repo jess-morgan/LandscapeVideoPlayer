@@ -40,9 +40,7 @@ const BackButton = ({ eoltitle, title: folTitle, visible }) => {
 
   return (
     <div className={classes.root}>
-      
-      {visible ?
-          
+                
          <Spring
         config={config.slow}
          delay={400}
@@ -65,32 +63,6 @@ const BackButton = ({ eoltitle, title: folTitle, visible }) => {
      </animated.div>  
     }
     </Spring>
-       
-    :
-
-    <Spring
-        config={config.slow}
-         delay={400}
-          from={{ opacity: 0, transform: 'translate3d(0,-30px,0)' }}
-           to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
-          {({ opacity, transform }) => 
-          <animated.div className='back-button-overlay hide'style={{ opacity, transform }} >
-        <div id='overlay' >
-        <ReactTouchEvents 
-        onTap={() => {setHomeClicked(true); setPlayVideo(false)}}>
-      <IconButton
-        onClick={onClick}
-        className={classes.button}
-      >        <svg width="8.5em" height="7.5em" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.799 8.93H39.38v2H3.797l7.517 7.515-1.415 1.415L0 9.96l.03-.03L0 9.9 9.9 0l1.414 1.414L3.799 8.93z" fill="white" fillRule="nonzero" />
-        </svg>
-      </IconButton>
-      </ReactTouchEvents>
-     </div>
-     </animated.div>  
-    }
-   </Spring>
-   }
     
   </div>
   )

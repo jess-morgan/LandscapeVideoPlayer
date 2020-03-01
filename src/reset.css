@@ -103,7 +103,7 @@ body {
 }
 
 .hide {
-  animation: hide 1s ease 3s forwards;
+  animation: hide 1s ease 2s forwards;
   animation-fill-mode: forwards;
 }
 

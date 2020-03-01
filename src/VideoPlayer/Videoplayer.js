@@ -3,20 +3,25 @@ import { AppContext } from "../App/AppContext"
 import { trackPageview } from '../utils/analytics'
 import { Player, ControlBar, VolumeMenuButton, PlayToggle, Shortcut } from 'video-react'
 import ReactTouchEvents from "react-touch-events"
+import IdleTimer from 'react-idle-timer'
 import { animated } from 'react-spring'
 import BackButton from '../BackButton'
 
 const VideoPlayerComp = ({ videoObj }) => {
  const [state, setState] = useContext(AppContext)
  const [paused, setPause] = useState(false)
- const [overlayVisible, setOverlayVisible] = useState(true)
+ let [overlayVisible, setOverlayVisible] = useState(true)
  const [homeClicked, setHomeClicked] = useGlobal('homeClicked')
  const [playVideo, setPlayVideo] = useGlobal('playVideo')
  const [timedOut, setTimedOut] = useGlobal('timedOut')
+ const [timeOut, setTimeOut] = useState(3000)
  const [currentVolume, setCurrentVolume] = useState()
+ const [playing, setPlaying] = useState()
  const [currentTime, setCurrentTime] = useState()
+ const [ended, setEnded] = useState()
  const [seeking, setSeeking] = useState(false)
  let videoPlayerRef = React.createRef()
+ let x = useRef(videoPlayerRef)
 
     useEffect(() => {
         setState(state => ({
@@ -37,25 +42,32 @@ const VideoPlayerComp = ({ videoObj }) => {
           }
         }) 
         videoPlayerRef.current.volume = 0.5
-        // videoPlayerRef.current.startControlsTimer()
-        // document.getElementsByTagName('video')[0].click()
-        setTimeout(() => controlsTimer(), 4000)
+        videoPlayerRef.current.startControlsTimer()
+
       }, []) 
 
-      const toggleOverlay = () => {
-        // if (seeking) {
-        //   setOverlayVisible(true)
-        // }
-        // if (paused) {
-        //   setOverlayVisible(true)
-        // } 
-        if (overlayVisible) {
-          setOverlayVisible(false)
-        }
-        if (!overlayVisible) {
-          setOverlayVisible(true)
-          setTimeout(() => setOverlayVisible(false, 5000))
+      const timeRef = useRef(null)
+
+      const onAction = (e) => {
+       setOverlayVisible(true)
+       console.log('action ' + overlayVisible)
       }
+     
+      const onActive = (e) => {
+        setOverlayVisible(true)
+        console.log('user is active ' + overlayVisible)
+      }
+     
+      const onIdle = (e) => {
+        if (paused) {
+        setOverlayVisible(true)
+        console.log('video is paused' + overlayVisible)
+        }
+        else {
+          setOverlayVisible(false)
+          overlayVisible = false
+          console.log('user is idle  ' + overlayVisible)
+        }
     }
 
       const pausedTimeOut = () => {
@@ -68,17 +80,40 @@ const VideoPlayerComp = ({ videoObj }) => {
         }
       }
 
-      const controlsTimer = () => {
-          videoPlayerRef.current.startControlsTimer()
-        }
 
     return (
       <ReactTouchEvents 
-        onTap={ () => toggleOverlay()}>
+        // onTap={ () => toggleOverlay()}
+        >
         <animated.div>
-          <div id='overlay' onClick={ () => toggleOverlay()}>
-
+          <div id='overlay' 
+          // onClick={ () => toggleOverlay()}
+          >
+          {overlayVisible ?  
+          <>
+          <IdleTimer
+          ref={timeRef}
+          element={document}
+          onActive={onActive}
+          onIdle={onIdle}
+          onAction={onAction}
+          timeout={timeOut} />
           <BackButton visible={overlayVisible} {...videoObj} />
+          </>
+          :
+          <>
+          <IdleTimer
+          ref={timeRef}
+          element={document}
+          onActive={onActive}
+          onIdle={onIdle}
+          onAction={onAction}
+          timeout={timeOut} />
+          <div className='hide'>
+          <BackButton visible={overlayVisible} {...videoObj} />
+          </div>
+          </>
+          }
             
             
             <Player
@@ -92,11 +127,11 @@ const VideoPlayerComp = ({ videoObj }) => {
               //     videoPlayerRef.current.startControlsTimer()
               //     console.log(videoPlayerRef)
               //   }}, 4000)}
-              onVolumeChange={() => volumeChange()}
-              onSeeking={() => setSeeking(true)}
-              onPlay={() => { console.log(document.getElementsByTagName('video')); setPause(false); setTimedOut(false); setTimeout(() => setOverlayVisible(false), 5500)}}
+              onVolumeChange={() => {volumeChange()}}
+              onSeeking={() => {setSeeking(true)}}
+              onPlay={() => { setPlaying(true); setPause(false); setTimedOut(false)}}
               onPause={() => {setPause(true); pausedTimeOut()}}
-              onEnded={() => {setTimeout(() => { setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}, 3000)}}
+              onEnded={() => {setEnded(true); setTimeout(() => { setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}, 3000)}}
               >
               <Shortcut clickable={false} />
              
