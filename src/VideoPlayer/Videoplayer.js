@@ -7,6 +7,7 @@ import IdleTimer from 'react-idle-timer'
 import { animated } from 'react-spring'
 import BackButton from '../BackButton'
 
+
 const VideoPlayerComp = ({ videoObj }) => {
  const [state, setState] = useContext(AppContext)
  const [paused, setPause] = useState(false)
@@ -15,13 +16,10 @@ const VideoPlayerComp = ({ videoObj }) => {
  const [playVideo, setPlayVideo] = useGlobal('playVideo')
  const [timedOut, setTimedOut] = useGlobal('timedOut')
  const [timeOut, setTimeOut] = useState(3000)
- const [currentVolume, setCurrentVolume] = useState()
  const [playing, setPlaying] = useState()
- const [currentTime, setCurrentTime] = useState()
  const [ended, setEnded] = useState()
  const [seeking, setSeeking] = useState(false)
  let videoPlayerRef = React.createRef()
- let x = useRef(videoPlayerRef)
 
     useEffect(() => {
         setState(state => ({
@@ -50,23 +48,19 @@ const VideoPlayerComp = ({ videoObj }) => {
 
       const onAction = (e) => {
        setOverlayVisible(true)
-       console.log('action ' + overlayVisible)
       }
      
       const onActive = (e) => {
         setOverlayVisible(true)
-        console.log('user is active ' + overlayVisible)
       }
      
       const onIdle = (e) => {
         if (paused) {
         setOverlayVisible(true)
-        console.log('video is paused' + overlayVisible)
         }
         else {
           setOverlayVisible(false)
           overlayVisible = false
-          console.log('user is idle  ' + overlayVisible)
         }
     }
 
@@ -82,13 +76,11 @@ const VideoPlayerComp = ({ videoObj }) => {
 
 
     return (
-      <ReactTouchEvents 
-        // onTap={ () => toggleOverlay()}
-        >
+      <ReactTouchEvents >
         <animated.div>
-          <div id='overlay' 
-          // onClick={ () => toggleOverlay()}
-          >
+
+          <div id='overlay' >
+
           {overlayVisible ?  
           <>
           <IdleTimer
@@ -98,7 +90,7 @@ const VideoPlayerComp = ({ videoObj }) => {
           onIdle={onIdle}
           onAction={onAction}
           timeout={timeOut} />
-          <BackButton visible={overlayVisible} {...videoObj} />
+          <BackButton visible={overlayVisible} fade={false} {...videoObj} />
           </>
           :
           <>
@@ -109,9 +101,7 @@ const VideoPlayerComp = ({ videoObj }) => {
           onIdle={onIdle}
           onAction={onAction}
           timeout={timeOut} />
-          <div className='hide'>
-          <BackButton visible={overlayVisible} {...videoObj} />
-          </div>
+          <BackButton visible={overlayVisible} fade={true} {...videoObj} />
           </>
           }
             
@@ -134,7 +124,6 @@ const VideoPlayerComp = ({ videoObj }) => {
               onEnded={() => {setEnded(true); setTimeout(() => { setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}, 3000)}}
               >
               <Shortcut clickable={false} />
-             
             <ControlBar autoHide={true} >
             <PlayToggle />
               <VolumeMenuButton vertical/>

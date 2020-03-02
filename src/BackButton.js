@@ -22,10 +22,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const BackButton = ({ eoltitle, title: folTitle, visible }) => {
+const BackButton = ({ eoltitle, title: folTitle, fade }) => {
   const classes = useStyles()
   const [homeClicked, setHomeClicked] = useGlobal('homeClicked')
   const [playVideo, setPlayVideo] = useGlobal('playVideo')
+  const [timedOut, setTimedOut] = useGlobal('timedOut')
 
   const onClick = () => {
 
@@ -40,19 +41,44 @@ const BackButton = ({ eoltitle, title: folTitle, visible }) => {
 
   return (
     <div className={classes.root}>
+        {fade ? 
+          <Spring
+          config={config.slow}
+          delay={0}
+            from={{ opacity: 1 }}
+            to={{ opacity: 0 }}>
+            {({ opacity }) => 
+            <animated.div className='back-button-overlay'style={{ opacity }} >
+          <div id='overlay' >
+          <ReactTouchEvents 
+          onTap={() => {setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}}>
+        <IconButton
+          onClick={() => {onClick(); setHomeClicked(true); setPlayVideo(false);  setTimedOut(false)}}
+          className={classes.button}
+        >        <svg width="8.5em" height="7.5em" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.799 8.93H39.38v2H3.797l7.517 7.515-1.415 1.415L0 9.96l.03-.03L0 9.9 9.9 0l1.414 1.414L3.799 8.93z" fill="white" fillRule="nonzero" />
+          </svg>
+        </IconButton>
+        </ReactTouchEvents>
+        </div>
+        </animated.div>  
+        }
+        </Spring>
+
+         : 
                 
          <Spring
-        config={config.slow}
-         delay={400}
-          from={{ opacity: 0, transform: 'translate3d(0,-30px,0)' }}
-           to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
-          {({ opacity, transform }) => 
-          <animated.div className='back-button-overlay'style={{ opacity, transform }} >
+        config={config.default}
+         delay={0}
+          from={{ opacity: 0 }}
+           to={{ opacity: 1 }}>
+          {({ opacity }) => 
+          <animated.div className='back-button-overlay'style={{ opacity }} >
         <div id='overlay' >
         <ReactTouchEvents 
-        onTap={() => {setHomeClicked(true); setPlayVideo(false)}}>
+        onTap={() => {setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}}>
       <IconButton
-        onClick={onClick}
+        onClick={() => {onClick(); setHomeClicked(true); setPlayVideo(false); setTimedOut(false)}}
         className={classes.button}
       >        <svg width="8.5em" height="7.5em" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <path d="M3.799 8.93H39.38v2H3.797l7.517 7.515-1.415 1.415L0 9.96l.03-.03L0 9.9 9.9 0l1.414 1.414L3.799 8.93z" fill="white" fillRule="nonzero" />
@@ -62,7 +88,7 @@ const BackButton = ({ eoltitle, title: folTitle, visible }) => {
      </div>
      </animated.div>  
     }
-    </Spring>
+    </Spring>}
     
   </div>
   )

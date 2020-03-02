@@ -1,4 +1,5 @@
 import React, { setGlobal } from 'reactn'
+import addReactNDevTools from 'reactn-devtools'
 import ReactDOM from "react-dom";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -62,6 +63,8 @@ setGlobal({
   homeClicked: true,
   playVideo: false
 })
+
+addReactNDevTools()
 
 ReactDOM.render(
   <AppProvider>
