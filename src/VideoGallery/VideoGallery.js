@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     position: "relative",
     minHeight: "100vh",
-    paddingTop: 27,
+    paddingTop: 34,
     paddingBottom: 10,
     paddingLeft: 100,
     paddingRight: 100,
@@ -37,11 +37,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       display: "grid",
       gridTemplateColumns: "repeat(2, auto)",
-      gridGap: '62px 117px',
+      gridGap: '62px 110px',
       touchAction: 'pan-y',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: 12,
+      paddingTop: '2%',
       width: '60%',
       marginLeft: '22%'
     }

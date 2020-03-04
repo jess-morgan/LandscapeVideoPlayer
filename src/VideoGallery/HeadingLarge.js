@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles"
           fontWeight: 'normal',
           lineHeight: 'normal',
           letterSpacing: 'normal',
-          marginLeft: 240
+          marginLeft: '18%'
         },
         text: {
           marginBottom: 20,      
