@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 100,
     paddingRight: 100,
   },
+  // for 5+
   gridSm: {
     [theme.breakpoints.up("sm")]: {
       display: "grid",
@@ -33,6 +34,7 @@ const useStyles = makeStyles(theme => ({
       marginBottom: '2vh'
     }
   },
+  // for x4
   gridMed: {
     [theme.breakpoints.up("sm")]: {
       display: "grid",
@@ -46,6 +48,7 @@ const useStyles = makeStyles(theme => ({
       marginLeft: '22%'
     }
   },
+  //for x3
   gridLg: {
     [theme.breakpoints.up("sm")]: {
       display: "grid",
@@ -58,6 +61,7 @@ const useStyles = makeStyles(theme => ({
       marginBottom: '2vh'
     }
   },
+  // for x2
   gridXL: {
     [theme.breakpoints.up("sm")]: {
       display: "grid",
