@@ -7,6 +7,7 @@ import { AppProvider } from "./App/AppContext";
 import App from "./App/App";
 
 import './reset.css';
+import '../node_modules/video-react/dist/video-react.css'
 
 const theme = createMuiTheme({
   typography: {
