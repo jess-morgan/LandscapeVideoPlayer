@@ -151,6 +151,7 @@ if (playVideo && !homeClicked) {
     return (
    
        <div className='fade-in'>
+         <button style={{width: 50, height: 40, background: 'transparent', border: 'none', position: 'fixed', zIndex: 100}} onClick={() => {setHomeClicked(true); setPlayVideo(false); setTimedOut(false); setTimedOut(true)}} > </button>
    
          <animated.div className={classes.root}>
          {/* check scroll position to animate headings */}
