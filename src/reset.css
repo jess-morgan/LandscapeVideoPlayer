@@ -24,11 +24,11 @@ body {
   overflow: hidden;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Gotham Narrow';
   src: url("./GothamNarrow-Medium.woff2") format("woff2"), url("./GothamNarrow-Medium.woff") format("woff"); 
-}
-
+  src: url("../../../../CMS/Custom/Fonts/GothamNarrow-Medium.woff2") format("woff2"), url("../../../../CMS/Custom/Fonts/GothamNarrow-Medium.woff") format("woff");
+} */
 
 /* animations */
 
@@ -172,7 +172,15 @@ body {
   position: fixed;
   cursor: pointer;
   background-color: #0000005e;
+}
 
+.play-button-overlay {
+ width: 58px; 
+ height: 57px; 
+ z-index: 100; 
+ position: absolute; 
+ margin-top: 6.5%; 
+ margin-left: 12.5%;
 }
 
 /* video player */
@@ -184,7 +192,7 @@ body {
 }
 
 .video-react .video-react-video {
-  width: auto !important;
+  width: 100% !important;
   height: auto !important;
   min-width: none !important;
 }

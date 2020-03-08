@@ -86,9 +86,7 @@ const useStyles = makeStyles(theme => ({
           from={{ opacity: 1 , transform: 'translate3d(0,0px,0)' }}
            to={{ opacity: 1, transform: 'translate3d(0,-50px,0)'  }}>
           {({ opacity, transform  }) =>
-        <div id='overlay' style={{ opacity
-        // , transform 
-        }} >
+        <div id='overlay' style={{ opacity }} >
      <MuiThemeProvider theme={homeButtonStyles}>
           <ReactTouchEvents 
           onTap={() => {setHomeClicked(true); setPlayVideo(false)}}>

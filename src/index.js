@@ -6,6 +6,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { AppProvider } from "./App/AppContext";
 import App from "./App/App";
 
+import "../node_modules/video-react/dist/video-react.css"
 import './reset.css'
 
 const theme = createMuiTheme({

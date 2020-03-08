@@ -72,7 +72,7 @@ const LanguageToggle = () => {
         color='white'
         animationDuration={0.5}
       />
-        <div style={{marginLeft: '0.5vw'}}>{currentCultureName}</div>
+        <div style={{marginLeft: '0.5vw'}} dangerouslySetInnerHTML={{ __html: currentCultureName }}/>
       </Button>
       <Spring
       config={config.slow}
@@ -93,7 +93,7 @@ const LanguageToggle = () => {
       >
         {cultureNames.map(name => {
         if (name !== currentCulture) {
-        return <MenuItem key={name} className={menuStyle.root} onClick={() => {handleClose(); onChange(name)}}>{name}</MenuItem>
+        return <MenuItem key={name} className={menuStyle.root} onClick={() => {handleClose(); onChange(name)}} dangerouslySetInnerHTML={{ __html: name }}></MenuItem>
         }
       })}
   </Menu>

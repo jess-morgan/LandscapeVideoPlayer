@@ -17,7 +17,7 @@ const HeadingSmall = ({ title, color }) => {
          {({ transform, fontSize, fontWeight, paddingTop, paddingLeft, marginBottom, color, float }) =>
         <div className='fade-in' style={{ marginTop: 0, top: 0, left: 0, height: '8em', width: '100vw', background: 'white', display: 'flex',
         flexDirection: 'column', position: 'fixed', color: `${color}`, zIndex: '200'  }} >
-        <h1 style={{ transform, fontSize, fontWeight, paddingTop, paddingLeft, marginBottom, float, color }}>{title}</h1>
+        <h1 style={{ transform, fontSize, fontWeight, paddingTop, paddingLeft, marginBottom, float, color }} dangerouslySetInnerHTML={{ __html: title }}/>
         </div>}
         </Spring>
   </>

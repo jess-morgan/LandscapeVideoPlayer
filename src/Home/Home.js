@@ -63,7 +63,9 @@ const Home = (props) => {
     {/* check if props.backgroundImage ends in video type or image type and render correct tag w/ src */}
       {props.backgroundImage.match(/\.(jpeg|jpg|gif|png|bmp|svg)$/) ? 
       <>
-       <img src={props.backgroundImage} alt={props.title} className='landing-image'/>
+       <img 
+       src='http://digitallabels.aucklandmuseum.com/digitallabels/media/digitallabels/Video%20product/maungakiekie-background-image.png' 
+       alt={props.title} className='landing-image'/>
        <animated.div className={classes.root}>
 
        <Spring

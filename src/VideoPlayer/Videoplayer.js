@@ -76,11 +76,12 @@ const VideoPlayerComp = ({ videoObj }) => {
 
       const onVideoEnd = () => {
         playing ? 
-        setPlayVideo(true) 
+        setPlayVideo(true) && 
+        setPlaying(true)
         : 
-        setHomeClicked(true)
-        setPlayVideo(false)
-         setTimedOut(false)
+        setHomeClicked(true) 
+        setPlayVideo(false) 
+        setTimedOut(false)
         // if (playing) {
         //   setPlayVideo(true)
         // } if (ended && !playing) {
@@ -138,7 +139,7 @@ const VideoPlayerComp = ({ videoObj }) => {
               onSeeking={() => {setSeeking(true)}}
               onPlay={() => { setPlaying(true); setPause(false); setTimedOut(false)}}
               onPause={() => {setPause(true); pausedTimeOut()}}
-              onEnded={() => {setEnded(true); setPlaying(false); setTimeout(() => onVideoEnd(), 3000)}}
+              onEnded={() => {setEnded(true); setPlaying(false); setTimeout(() => onVideoEnd(), 4000)}}
               >
               <Shortcut clickable={false} />
             <ControlBar autoHide={true} >

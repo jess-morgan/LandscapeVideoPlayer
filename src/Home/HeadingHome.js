@@ -14,8 +14,10 @@ import { makeStyles } from "@material-ui/core/styles"
         text: {
           marginBottom: 20,      
           marginTop: -20,
-          float: 'left',
-          fontSize: '32px'
+          '& *': {
+            float: 'left',
+            fontSize: '32px',
+          }
         }
       }));
 
@@ -33,8 +35,8 @@ const HeadingHome = ({ title, text, color }) => {
     >
      {({ transform, fontSize, fontWeight, marginTop, marginBottom, color, float }) =>
     <div className={classes.header} >
-     <h1 style={{ transform, fontSize, fontWeight, marginTop, marginBottom, color, float }} >{title}</h1>
-     <div className={classes.text} style={{ transform, color }}>{text}</div>
+     <h1 style={{ transform, fontSize, fontWeight, marginTop, marginBottom, color, float }} dangerouslySetInnerHTML={{ __html: title }}/>
+     <div className={classes.text} style={{ transform, color }} dangerouslySetInnerHTML={{ __html: text }}/>
     </div>}
   </Spring>
   </>

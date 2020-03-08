@@ -29,9 +29,7 @@ const VideoTitle = ({ visible, title, color }) => {
          to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}>
         {({ opacity, transform }) =>
       <div id='overlay' style={{ opacity, transform }} >
-      <p id='video-title' className={classes.title} style={{ color: `${color}`}}>
-               {title} 
-          </p>
+      <p id='video-title' className={classes.title} style={{ color: `${color}`}} dangerouslySetInnerHTML={{ __html: title }}/>
   </div> }
    </Spring>
    </animated.div>
@@ -44,9 +42,7 @@ const VideoTitle = ({ visible, title, color }) => {
          to={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}>
         {({ opacity, transform }) =>
       <div id='overlay' style={{ opacity, transform }} >
-      <p id='video-title' className={classes.title} style={{ color: `${color}`}}>
-               {title} 
-          </p>
+      <p id='video-title' className={classes.title} style={{ color: `${color}`}} dangerouslySetInnerHTML={{ __html: title }}/>
   </div> }
    </Spring>
    </animated.div>
